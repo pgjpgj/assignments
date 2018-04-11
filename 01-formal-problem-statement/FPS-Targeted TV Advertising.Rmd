@@ -1,0 +1,94 @@
+---
+title: "Formal Project Statement for Targeted TV Advertising"
+author: "Paul Jensen"
+date: "4/10/2018"
+output: html_document
+---
+
+## Proposal
+
+The goal of this project is to improve advertising effectiveness in a cable network by displaying targeted ads
+to households based on their individual characteristics.  The means to achieving these improvements are:
+
+  * deploying hardware in cable headends that allow STBs to choose which ad to display in a slot (assumed, but outside the scope of this project)
+  * investigate the feasibility of developing a model for choosing ads based on each household's demographics and prior viewing history (in scope for this project)
+
+## Background
+
+The infrastructure for advertising on linear cable TV has developed over the past 50 years to a high state
+of maturity.  This applies to both the technology and the business roles.  The ecosystem includes hundreds
+of companies performing a number of functions, including:
+
+  * creating ads
+  * selling ads
+  * storing ads on servers until they are to be displayed 
+  * protocols for splicing ads in real-time during breaks
+  * measuring response to ads
+  
+This last point refers to an advantage of two-way cable infrastructure.  Unlike broadcast TV, cable set top boxes
+can save a log of channel tunes that are forwarded to the cable head end.  This give cable operators the ability to see at the individual STB level which programming is being watched.  Reports generated from these data are
+more accurate than statistical approaches such as "Nielsen Households" keeping paper logs.
+
+A major limitation of traditional cable infrastructure is that despite having return path capability, content
+(both programs and advertising) is broadcast on a fixed schedule to a large (national, in the case of
+prime-time TV) audience.  Although some regional customization is possible, to large extent the same ads are
+delivered to all households.  The only way to "target" ads is to take advantage of the demographic skew of the program showing (e.g. sitcom vs drama).
+
+The rise first of the web and more recently over-the-top (OTT) programming like Netflix has challenged the traditional supremacy of linear TV advertising.  Web programming can take advantage of cookies to serve ads
+in real-time highly targeted to individual users.  Likewise, OTT programmers know who their users are (via
+return path data) and are already unicasting content so have bandwidth available for targeted ads.  
+
+For historical and practical reasons, cable systems are inherently broadcast in nature, and have very limited
+additional bandwidth for sending customized advertising to households.  However, recently systems have
+been developed to relax the one ad for all users restriction.
+
+Companies such as *Invidi* and *Visible World* have deployed hardware-based systems that allow a limited palette of ads (typically around 4) to be served to individual STBs based on external criteria.  Although modest compared to the web, this could be very powerful in the context of national brand advertising.  To give a simple example, imagine a TV sitcom known to be popular in households with young families.  Data aggregated from multiple sources could identify a subset of these viewers who are in the market for a new car.  These users would preferentially receive automobile ads whereas the others would receive ads for non-automotive consumer products.  In another variation, for a drama with demographically diverse viewership, the young family segment might receive ads for vans and SUVs, where small, childless households might get ads for sports cars from the same manufacturer.
+
+## Roles
+
+Knowing who the stakeholders in this project are is a pre-requisite for evaluating whether to proceed with the project.  Following is a summary of their roles and responsibilities:
+
+  * __Cableco__ (*a fictitious but representive cable operator* )
+    * __Management__: overall responsibility for the success of the business, based on financial metrics.  Interface with all other groups.
+    * __Operations__: responsible for operating the cable infrastructure.  Very conservative, program disruptions visible to subscribers are career-ending.
+    * __Trafficing__: responsible for loading the ad servers and making sure the right ads are played.  Interface to Sales and Operations.
+    * __Sales__: responsible for acquiring ad content.  Interface with management, trafficing, and agencies.
+    * __Accounting__: responsible for reports measuring the effectiveness of advertising decisions.  Interface with Operations, Trafficing, Sales, and Analytics
+    * __Analytics__: responsible for developing a model suitable for making targeting decisions.  Interface with management and trafficing.
+  * __Advertising Agency__: responsible for creating ad content and running campaigns.  Interface with advertisers and media outlets, including cable operators.
+  * __Advertiser__: manufacturer of products/services that are being advertised.  Interface with Ad agencies (which may be in-house)
+  * __Ad-tech vendor__: developer of the hardware necessary to provide targeting capability.  Interface with cable operators.
+
+## Benefits
+
+If a model can be developed to take advantage of the enhanced targeting ability, the following benefits will acrue to the stakeholders:
+
+  * Viewership: research has shown that consumers are more likely to watch ads if they are relevent.
+  * Selectivity: advertisers worry about the effectiveness of their spending, as evidenced by the famous John Wannamaker quote from a century ago: "Half the money I spend on advertising is wasted; the trouble is I don't know which half."  Targeting addresses this directly.
+  * Competitiveness: targeted national ads would be a highly effective model to counter OTT advertising,  It is a hybrid feature the scope of a national compaign (i.e prime-time audience) with greater selectivity.  For brand advertisers, this is a very appealing combination.
+
+## Success Metrics
+
+The key metric will be increased ad revenue, but becuase more advertisers and higher rates.  Control groups can be used to measure the effectivness of targeted advertising.  Assessing performance at higher granularity:
+
+  * __STB Return Path Data__: detailed tuning (channel change, mute, Picture-in-Picture) data allows the viewership of the ads displayed to be assessed
+  * __Brand recognition__: traditional methods deployed by advertising agencies (e.g. panels) in conjunction with control groups can measure awareness of a particular campaign
+  * __CPM__: the greater selectivity of targeted advertising allows higher rates to be charged
+  * __Demand__: more advertisers will be drawn to the targeting capability, particularly for prime-time slots.  The increased competition will drive rates higher for popular slots.
+
+## Risks
+
+These are the principal risks of the project:
+
+  * __Model Effectiviness__: there is no guarantee that a model can be developed that will deliver the promised benefits.  Even if such a model is able to effectively segment viewers, it does not follow that this selectivity will translate into greater awareness of the product.  The flip-side of the availability of return path data is that advertisers can (and will) be able to quantitatively measure the efficacy of targeted advertising.
+  * __Pushback from Operations__: this group has to be convinced that the introduction of targeted advertising (both hardware and workflow) will not destabilize the operation of the system.  If they drag their feed it will difficult to deploy the system.
+
+## Timeline
+
+The project will proceed in the following phases (partially overlappable):
+
+  * __Model Development__: this is the first step.  If a segmentation model can't be developed then there is no point proceeding.  This should take 6 months to reach a go/no decision.  Subsequent phases can speculatively started if preliminary results are favorable.
+  * __System Integration__: the model has be integrated with the targeting equipment.  This will allow testing to proceed, and flesh out the workflow changes required to deploy on a large scale.  This will take another 3-6 months.
+  * __Model Validation__: the model has to be deployed on a trial-basis to validate and quantify the claims.  Advertising partners also need to be recruited (those with products spanning multiple demographic segments preferred).  This will take at least three months.
+  * __Large-scale Deployment__:  once the model is validated and a base system configuration established, it will have to be rolled out nationally.  This will likely be a multi-year effort.  Also experience gained during this phas will likely result in refinements to the model, components, and workflow (i.e. not a simple waterfall).
+

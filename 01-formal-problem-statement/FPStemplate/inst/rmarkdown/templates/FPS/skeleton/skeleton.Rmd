@@ -1,0 +1,39 @@
+---
+title: "Formal Project Statement"
+author: "Paul Jensen"
+date: "4/10/2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Proposal
+
+Lorem Ipsum.
+
+## Background
+
+Lorem Ipsum.
+
+## Roles
+
+Lorem Ipsum.
+
+## Benefits
+
+Lorem Ipsum.
+
+## Success Metrics
+
+Lorem Ipsum.
+
+## Risks
+
+Lorem Ipsum.
+
+## Timeline
+
+Lorem Ipsum.
+
